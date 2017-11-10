@@ -1,0 +1,17 @@
+conf t
+  hostname Host
+  enable secret pass
+  no logging console
+  no ip domain-lookup
+  no service config
+  service password-encryption
+  line console 0
+    password pass
+    login
+    exec-timeout 0 0
+    exit
+  line vty 0 14
+    password pass
+    login
+    exec-timeout 0 0
+    exit
