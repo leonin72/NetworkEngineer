@@ -1,0 +1,14 @@
+conf t 
+  interface giga 0/0 
+    no shutdown 
+    ip address 192.168.M.1 255.255.255.0 
+    end
+ping 192.168.M.1 -->> success rate 100%
+conf t 
+  ip dhcp excluded-address 192.168.M.1 192.168.M.50 
+  ip dhcp pool BIGAYIP 
+    network 192.168.M.0 255.255.255.0 
+    default-router 192.168.M.1 -->> default gateway
+    option 150 ip 192.168.M.1 -->> TFTP of IP Phone
+    domain-name CCNA.com 
+    dns 8.8.8.8 4.2.2.2 
